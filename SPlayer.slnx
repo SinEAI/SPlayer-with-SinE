@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/SPlayer.App/SPlayer.App.csproj"><Platform Project="x64" /></Project>
+    <Project Path="src/SPlayer.Core/SPlayer.Core.csproj" />
+    <Project Path="src/SPlayer.Mpv/SPlayer.Mpv.csproj" />
+    <Project Path="src/SPlayer.Tests/SPlayer.Tests.csproj" />
+  </Folder>
+</Solution>

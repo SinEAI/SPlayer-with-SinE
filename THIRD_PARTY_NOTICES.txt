@@ -1,0 +1,57 @@
+SPlayer 0.1.2.1
+Copyright (c) 2026 SinE
+
+SPlayer 自身的界面与播放控制代码随本仓库以 GPL-2.0-or-later 发布。
+原因不是界面代码本身必须使用 GPL，而是发布包里的 libmpv 构建包含 GPL 组件。
+把这些二进制和 SPlayer 放在一起分发时，整个程序按 GPL-2.0-or-later 提供。
+
+------------------------------------------------------------------------
+libmpv / mpv / FFmpeg
+------------------------------------------------------------------------
+
+文件：libmpv-2.dll
+来源：https://github.com/shinchiro/mpv-winbuild-cmake/releases/tag/20261021
+资产：mpv-dev-x86_64-20261021-git-e471496c56.7z
+对应 mpv 提交：e471496c56
+API：libmpv client 2.6
+
+mpv 上游：https://github.com/mpv-player/mpv
+mpv 的版权说明见 third_party/mpv/Copyright。
+默认的 mpv 发行（以及这份 shinchiro 构建）是 GPL-2.0-or-later。
+这份构建链接了按 GPL 发布的 FFmpeg 组件，不能把它当成单纯的 LGPL libmpv。
+
+FFmpeg 上游：https://ffmpeg.org/
+同一发布标签中的 ffmpeg-x86_64-git-9a861e968.7z 只用于生成测试样本。
+便携包不包含 ffmpeg.exe。
+
+GPL-2.0 与 LGPL-2.1 全文：
+  third_party/licenses/GPL-2.0.txt
+  third_party/licenses/LGPL-2.1.txt
+
+------------------------------------------------------------------------
+Vulkan loader
+------------------------------------------------------------------------
+
+文件：vulkan-1.dll
+分发来源：构建流程安装的 LunarG Vulkan Runtime 1.3.296.0（x64）。
+许可证：Apache-2.0。全文见 third_party/licenses/Apache-2.0.txt。
+Vulkan 加载器上游：https://github.com/KhronosGroup/Vulkan-Loader
+
+libmpv 的这份构建在启动时需要 vulkan-1.dll。它是加载器，不是解码器。
+持续集成会安装 LunarG Vulkan Runtime 1.3.296.0，再复制其中的 x64 vulkan-1.dll。
+不要用来源不明的 DLL 替换它。
+
+------------------------------------------------------------------------
+其他组件
+------------------------------------------------------------------------
+
+Vortice.Direct3D11 3.6.2
+  https://github.com/amerkoleci/Vortice.Windows
+  MIT License
+
+Microsoft.WindowsAppSDK 2.5.1
+Microsoft.Windows.SDK.BuildTools 10.0.28000.2705
+.NET 8 运行时（自包含发布时附带）
+  使用各自的微软软件许可证。发布目录中的 .NET 第三方声明随运行时一起提供。
+
+测试样本由上述 FFmpeg 在本地生成，不包含第三方影视内容。
